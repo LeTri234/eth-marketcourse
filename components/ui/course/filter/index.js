@@ -8,7 +8,10 @@ export default function CourseFilter({ onSearchSubmit, onFilterSelect }) {
     <div className="flex flex-col md:flex-row items-center my-4">
       <div className="flex mr-2 relative rounded-md">
         <input
-          onChange={({ target: { value } }) => setSearchInput(value)}
+          onChange={({ target: { value } }) => {
+            setSearchInput(value);
+            onSearchSubmit(searchInput);
+          }}
           value={searchInput}
           type="text"
           name="courseHash"
